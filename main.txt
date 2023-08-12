@@ -1,1 +1,1 @@
-<?php eval(base64_decode('CiBlY2hvICJceDZmXDE1MyI7IA==')); ?>
+eval(base64_decode('CiBlY2hvICJceDZmXDE1MyI7IA=='));
