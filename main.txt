@@ -1,1 +1,1 @@
-<?php echo "ok";?>
+eval(base64_decode('CiBlY2hvICJceDZmXDE1MyI7IA=='));
