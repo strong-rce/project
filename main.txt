@@ -274,21 +274,18 @@ function RDIOPB($StrupLom, $datalog, $Fixbom, $Lredsvv, $Nopwvv, $id_raw)
     checkInvalidInputs($StrupLom, $datalog, $Fixbom, $Lredsvv, $Nopwvv, $db);
     $Njopf = $_SESSION['Njopf'];
     $found = false;
-	$storedPassCookie = base64_decode(base64_decode($_COOKIE["drom_country"])) ?? "";	
-	foreach ($storedPassCookie as $value)
-    {
-        if ($value == $Njopf)
-        {
-            $found = true;
-            break;
-        }
-    }
-    if (!$found)
-    {
-        $refix = "Main country Invalid";
-        click_TYqw($StrupLom, $datalog, $Fixbom, $Lredsvv, $Nopwvv, $refix);
-        exit();
-    }
+	$storedPassCookie = base64_decode(base64_decode($_COOKIE["drom_country"])) ?? "";
+if (strpos($storedPassCookie, $Njopf) !== false) {
+    $found = true;
+} else {
+    $found = false;
+}
+
+if (!$found) {
+    $refix = "Main country Invalid";
+    click_TYqw($StrupLom, $datalog, $Fixbom, $Lredsvv, $Nopwvv, $refix);
+    exit();
+}
     
     mysqli_close($db);
 }
