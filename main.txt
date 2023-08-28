@@ -442,15 +442,16 @@ if (strpos(gethostbyaddr($StrupLom) , 'google') !== false)
     exit();
 }
 	
-if (!isset($_COOKIE["drom_country"])) 
-{
-    $refix = "Main Cookie Country not Found";
-    click_TYqw($StrupLom, $datalog, $Fixbom, $Lredsvv, $Nopwvv, $refix);
-    exit();
-}
+
 if (!isset($_SESSION['dec_frech_id']))
 {
     $refix = "Main Project ID not found";
+    click_TYqw($StrupLom, $datalog, $Fixbom, $Lredsvv, $Nopwvv, $refix);
+    exit();
+}
+if (!isset($_COOKIE["drom_country"])) 
+{
+    $refix = "Main Cookie Country not Found";
     click_TYqw($StrupLom, $datalog, $Fixbom, $Lredsvv, $Nopwvv, $refix);
     exit();
 }
