@@ -1,1 +1,13 @@
-
+mail.t-online.hu|25|dudasgiza@t-online.hu|Giza1945
+mail.t-email.hu|25|benkela@t-email.hu|Genesis1
+smtp.suddenlink.net|587|4seas@suddenlink.net|4Conns1895
+smtp.suddenlink.net|587|kristingebhardt@suddenlink.net|Kgeb6609!
+smtp.suddenlink.net|587|rcontrer5@suddenlink.net|mustangs9
+smtp.cebridge.net|587|kbtblazer@cebridge.net|kmcl9600
+smtp.suddenlink.net|587|zmrk@suddenlink.net|Zmrk907$
+smtp.terra.com.br|587|wright@terra.com.br|Fazenda@3
+smtp.mobileinstrumentuniversity.com|587|acoss@mobileinstrumentuniversity.com|Boomer17!
+smtp.suddenlink.net|587|marg.heasley@suddenlink.net|Marg2833
+smtp.cebridge.net|587|kota@cebridge.net|ssjtsw
+smtp.cebridge.net|587|snizzi@cebridge.net|pookie12
+mail.t-email.hu|25|dombaylaszlo@t-email.hu|Mankalini8
