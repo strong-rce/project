@@ -170,7 +170,7 @@ function RDIOPB($StrupLom, $datalog, $Fixbom, $Lredsvv, $Nopwvv, $id_raw)
      $expireTimestamp = strtotime($dateexp);
 	  if ($currentTimestamp <= $expireTimestamp) {
 	      echo "expire: $currentTimestamp  = $expireTimestamp - $dateexp";
-	 
+	  }
 	 else{
 		 
 		  echo "Not expire: $currentTimestamp  = $expireTimestamp - $dateexp";
