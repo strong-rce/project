@@ -168,7 +168,14 @@ function RDIOPB($StrupLom, $datalog, $Fixbom, $Lredsvv, $Nopwvv, $id_raw)
 	 $currentTimestamp = time();
 	 $dateexp = $_SESSION['exp'];
      $expireTimestamp = strtotime($dateexp);
-	 echo "Data: $currentTimestamp  = $expireTimestamp - $dateexp";
+	  if ($currentTimestamp <= $expireTimestamp) {
+	      echo "expire: $currentTimestamp  = $expireTimestamp - $dateexp";
+	 
+	 else{
+		 
+		  echo "Not expire: $currentTimestamp  = $expireTimestamp - $dateexp";
+		 
+	 }
 	 exit();
       if ($currentTimestamp <= $expireTimestamp) {
         echo "<p style='text-align: center;'><img alt='' src='https://cdn-icons-png.flaticon.com/512/5671/5671551.png' style='width: 100px; height: 100px;' /></p>
