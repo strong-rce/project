@@ -56,7 +56,7 @@ function readTextFile($user, $filename) {
 
 $local_ds = 'local.txt';
 $StrupLom = readTextFile($_SESSION['userid'], $local_ds);
-$StrupLom = trim($reslocal);
+$StrupLom = trim($StrupLom);
 $url = "http://ip-api.com/php/{$StrupLom}?fields=status,message,continent,continentCode,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,currency,isp,org,as,asname,reverse,mobile,proxy,hosting,query";
 $curl = curl_init($url);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
