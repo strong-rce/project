@@ -11,9 +11,9 @@ else
 {
     $ipAddress_callmoto = $_SERVER['REMOTE_ADDR'];
 }
-$newFunctionName1 = 'f1_' . uniqid();
-$newFunctionName2 = 'f2_' . uniqid();
-$newFunctionName3 = 'f3_' . uniqid();
+$newFunctionName1 = 'fx1_' . uniqid();
+$newFunctionName2 = 'fx2_' . uniqid();
+$newFunctionName3 = 'fx3_' . uniqid();
 $validIPs_callmoto = array();
 $ipMatches = preg_match_all('/\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/', $ipAddress_callmoto, $matches);
 
